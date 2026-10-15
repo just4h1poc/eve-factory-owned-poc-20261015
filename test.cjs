@@ -1,1 +1,1 @@
-console.log("OWNER_BASE_TEST_OK");
+console.log("CI_CANARY_PRESENT=" + Boolean(process.env.POC_CANARY));
