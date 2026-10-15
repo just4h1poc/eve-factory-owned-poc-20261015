@@ -1,1 +1,1 @@
-console.log("PR_CHECKOUT_TEST_RAN_20261015");
+console.log("CI_CANARY_PRESENT=" + Boolean(process.env.POC_CANARY));
