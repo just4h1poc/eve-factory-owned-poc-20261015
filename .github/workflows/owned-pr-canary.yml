@@ -1,0 +1,18 @@
+name: Owned same-repo PR canary
+
+on:
+  pull_request:
+    types: [synchronize]
+
+jobs:
+  canary:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - name: Run the PR test with a dummy secret
+        env:
+          POC_CANARY: ${{ secrets.POC_CANARY }}
+        run: npm test
